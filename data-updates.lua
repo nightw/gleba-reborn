@@ -68,6 +68,7 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	table.insert(data.raw["assembling-machine"]["centrifuge"].crafting_categories, "organic-or-centrifuging")
 	
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-synthetic-nutrients" })
+	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "biolubricant" })
 	
 	set_recipe_category("ice-melting", "organic-or-chemistry")
 	set_recipe_category("thruster-fuel", "organic-or-chemistry")
