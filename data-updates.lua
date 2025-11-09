@@ -32,6 +32,16 @@ if settings.startup["gleba-reborn-advanced-bacteria-recipes"].value then
 	data.raw.recipe["copper-bacteria"].subgroup = "gleba-reborn-bacteria-processes"
 	data.raw.recipe["iron-bacteria-cultivation"].subgroup = "gleba-reborn-bacteria-processes"
 	data.raw.recipe["copper-bacteria-cultivation"].subgroup = "gleba-reborn-bacteria-processes"
+	
+	-- Move biolubricant recipe from bioflux processing to biochamber, since the recipe doesn't require bioflux
+	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "biolubricant" })
+	local bioflux_processing_tech = data.raw.technology["bioflux-processing"]
+	for i,effect in pairs(bioflux_processing_tech.effects) do
+		if effect.recipe == "biolubricant" then
+			table.remove(bioflux_processing_tech.effects, i)
+			break
+		end
+	end
 end
 
 if settings.startup["gleba-reborn-useful-wood-fish"].value then
@@ -68,7 +78,6 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	table.insert(data.raw["assembling-machine"]["centrifuge"].crafting_categories, "organic-or-centrifuging")
 	
 	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "gleba-reborn-synthetic-nutrients" })
-	table.insert(data.raw.technology["biochamber"].effects, { type = "unlock-recipe", recipe = "biolubricant" })
 	
 	set_recipe_category("ice-melting", "organic-or-chemistry")
 	set_recipe_category("thruster-fuel", "organic-or-chemistry")
