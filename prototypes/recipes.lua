@@ -1,5 +1,5 @@
 
-require("control")
+require("common")
 
 
 local organic_centrifuging_category = {

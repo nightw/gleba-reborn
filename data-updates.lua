@@ -1,7 +1,7 @@
 
 require("util")
 require("prototypes/recipes")
-require("control")
+require("common")
 
 
 if settings.startup["gleba-reborn-egg-free-biochamber"].value then
@@ -87,6 +87,7 @@ if settings.startup["gleba-reborn-extra-biochamber-recipes"].value then
 	set_recipe_category("solid-fuel-from-heavy-oil", "organic-or-chemistry")
 	set_recipe_category("solid-fuel-from-light-oil", "organic-or-chemistry")
 	set_recipe_category("solid-fuel-from-petroleum-gas", "organic-or-chemistry")
+	set_recipe_category("coal-synthesis", "organic-or-chemistry")
 	set_recipe_category("lubricant", "organic-or-chemistry")
 	set_recipe_category("biolab", "organic")
 	set_recipe_category("uranium-processing", "organic-or-centrifuging")
